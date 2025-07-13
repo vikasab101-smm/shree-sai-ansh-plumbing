@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="All Bathroom Renovation, Plumbing, Tiles & Electrical Services in Wakad - Shree Sai Ansh Plumbing Services">
+  <title>Shree Sai Ansh Plumbing Services | Wakad, Pune</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    h1, h2 { text-align: center; margin-bottom: 1rem; }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: linear-gradient(135deg, #912C8C, #7E2F85);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+    }
+    header h1 { font-size: 2.5rem; font-weight: 700; text-transform: uppercase; }
+    header .tagline { font-size: 1.1rem; margin: 0.5rem 0; }
+    header .location { font-size: 1rem; color: #ddd; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: 0;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav ul li a { color: #fff; font-weight: bold; }
+
+    .btn {
+      display: inline-block;
+      background: #43C0ED;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    section { padding: 3rem 1rem; }
+    .container { max-width: 1100px; margin: auto; }
+
+    .modern-form input, .modern-form textarea, .modern-form select, .modern-form button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .modern-form button {
+      background: #912C8C;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modern-form button:hover { background: #7E2F85; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .service {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .service img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .google-review {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      min-width: 300px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .google-review p:first-child {
+      color: #ff9900;
+      font-weight: bold;
+      margin: 0 0 0.5rem 0;
+    }
+    .google-review p:last-child {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-section {
+  background: #f7f7f7;
+  padding: 3rem 1rem;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+#whatsapp-float {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 10001;
+}
+#whatsapp-float img {
+  width: 60px;
+  height: 60px;
+}
+
+
+html { scroll-behavior: smooth; }
+nav ul li a { transition: color 0.3s; }
+nav ul li a:hover { color: #43C0ED; }
+.btn, .modern-form button { transition: transform 0.2s, background 0.3s; }
+.btn:hover, .modern-form button:hover { transform: translateY(-3px); }
+.service { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.service:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.gallery-grid img { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.gallery-grid img:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+header { background-size: 200% 200%; animation: gradientShift 5s ease infinite alternate; }
+@keyframes gradientShift { 0% { background-position: left; } 100% { background-position: right; } }
+footer { transition: background 0.3s; }
+footer:hover { background: #000; }
+
+.before-after-slider {
+  position: relative;
+  max-width: 600px;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+.slider-wrapper { overflow: hidden; }
+.slider-track { display: flex; transition: transform 0.5s ease; }
+.slider-item { min-width: 100%; }
+.slider-item img { width: 100%; border-radius: 10px; }
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #912C8C;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+.slider-btn.prev { left: -30px; }
+.slider-btn.next { right: -30px; }
+.slider-btn:hover { background: #7E2F85; }
+
+before-after-section {
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.before-after-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-frame {
+  width: 100%;
+  max-width: 1080px;
+  aspect-ratio: 2 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+  background-color: #fff;
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-btn {
+  font-size: 30px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.prev-btn {
+  position: absolute;
+  left: 20px;
+}
+
+.next-btn {
+  position: absolute;
+  right: 20px;
+}
+
+</style>
+
+
+<style>
+.contact-banner {
+  position: relative;
+  background: linear-gradient(135deg, #912C8C, #1681C4);
+  color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1000px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+@media(min-width: 768px) {
+  .contact-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-box img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
+}
+
+.contact-box .text span {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.contact-box a {
+  display: block;
+  font-size: 1.05rem;
+  color: #43C0ED;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.contact-box a:hover {
+  color: #FFFFFF;
+}
+
+.shape-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  z-index: 0;
+}
+.circle-left {
+  top: -30px;
+  left: -30px;
+}
+.circle-right {
+  bottom: -30px;
+  right: -30px;
+}
+</style>
+
+
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="Homepage.html">Homepage</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#Google Reviews">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <h1>Shree Sai Ansh Plumbing Services</h1>
+  <p class="tagline">All Bathroom Renovation • Plumbing • Tiles • Electrical</p>
+  <p class="location">Datta Mandir Rd, Shamkar Kalat Nagar, Wakad, Pune – 411057</p>
+  <a href="tel:+918482858211" class="btn">📞 Call 84828 58211</a>
+  
+</header>
+
+<section id="quick-call-back" class="container hero-section" data-aos="fade-up"">
+  <h2>Request a Quick Call Back</h2>
+  <form class="modern-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="tel" placeholder="Mobile Number" required />
+    <select required>
+      <option value="">Select Service</option>
+      <option>Bathroom Leakage</option>
+      <option>Tiles Work</option>
+      <option>Waterproofing</option>
+      <option>Painting</option>
+      <option>Geyser Service</option>
+      <option>Fan Installation</option>
+      <option>Bathroom Renovation</option>
+      <option>Electrical Work</option>
+      <option>All Plumbing</option>
+      <option>Kitchen Sink</option>
+    </select>
+    <textarea placeholder="Describe your issue" required></textarea>
+    <button type="submit">Call me Please</button>
+  </form>
+</section>
+
+<section id="services" data-aos="fade-up">
+
+  <h2>Our Services</h2>
+  <div class="services-grid container">
+    <div class="service"><img src="https://img.icons8.com/color/96/plumbing.png"/><p>Bathroom Leakage</p></div>
+    <div class="service"><img src="https://i.pinimg.com/564x/87/63/e4/8763e42f048f6420d967e9a2dd65b58d.jpg"/><p>Tiles Work</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/water.png"/><p>Waterproofing</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/paint-brush.png"/><p>Painting</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/water-heater.png"/><p>Geyser Service</p></div>
+    <div class="service"><img src="https://thumbs.dreamstime.com/b/ceiling-fan-icon-color-outline-vector-flat-isolated-230643724.jpg"/><p>Fan Installation</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/bath.png"/><p>Bathroom Renovation</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/electrical.png"/><p>Electrical Work</p></div>
+    <div class="service"><img src="https://img.icons8.com/color/96/wrench.png"/><p>All Plumbing</p></div>
+    <div class="service"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-784-u8QxJM9VKHHCr1Qg3e77H5aOjpI9Q&s"/><p>Kitchen Sink</p></div>
+  </div>
+</section>
+
+
+
+<section class="before-after-section">
+  <h2 class="section-title">Before & After</h2>
+  <div class="before-after-wrapper">
+    <button class="nav-btn prev-btn" onclick="showPrev()">&#10094;</button>
+
+    <div class="image-frame">
+      <img id="beforeAfterImage" src="https://i.ibb.co/Xf9dCHR4/5.png" alt="Before After" />
+    </div>
+
+    <button class="nav-btn next-btn" onclick="showNext()">&#10095;</button>
+  </div>
+</section>
+
+
+<section id="gallery" data-aos="fade-up">
+  <h2>Gallery</h2>
+  <div class="gallery-grid container">
+
+<img src="https://i.ibb.co/JFBCwmy9/1.jpg" alt="Work 1" border="0">
+<img src="https://i.ibb.co/Z1dg8d8X/2.jpg" alt="Work 2" border="0">
+<img src="https://i.ibb.co/RTxprp5P/3.jpg" alt="Work 3" border="0">
+<img src="https://i.ibb.co/4ZRnwKb3/4.jpg" alt="Work 4" border="0">
+<img src="https://i.ibb.co/twqCdNzK/5.jpg" alt="Work 5" border="0">
+<img src="https://i.ibb.co/JFBCwmy9/1.jpg" alt="Work 1" border="0">
+<img src="https://i.ibb.co/Z1dg8d8X/2.jpg" alt="Work 2" border="0">
+<img src="https://i.ibb.co/RTxprp5P/3.jpg" alt="Work 3" border="0">
+<img src="https://i.ibb.co/4ZRnwKb3/4.jpg" alt="Work 4" border="0">
+<img src="https://i.ibb.co/twqCdNzK/5.jpg" alt="Work 5" border="0">
+<img src="https://i.ibb.co/JFBCwmy9/1.jpg" alt="Work 1" border="0">
+<img src="https://i.ibb.co/Z1dg8d8X/2.jpg" alt="Work 2" border="0">
+<img src="https://i.ibb.co/RTxprp5P/3.jpg" alt="Work 3" border="0">
+<img src="https://i.ibb.co/4ZRnwKb3/4.jpg" alt="Work 4" border="0">
+<img src="https://i.ibb.co/twqCdNzK/5.jpg" alt="Work 5" border="0">
+<img src="https://i.ibb.co/JFBCwmy9/1.jpg" alt="Work 1" border="0">
+<img src="https://i.ibb.co/Z1dg8d8X/2.jpg" alt="Work 2" border="0">
+<img src="https://i.ibb.co/RTxprp5P/3.jpg" alt="Work 3" border="0">
+<img src="https://i.ibb.co/4ZRnwKb3/4.jpg" alt="Work 4" border="0">
+<img src="https://i.ibb.co/twqCdNzK/5.jpg" alt="Work 5" border="0">
+</div>
+</section>
+
+
+<section id="testimonials" data-aos="fade-up">
+  <h2>Google Reviews</h2>
+  
+<div class='sk-ww-google-reviews' data-embed-id='25577284'></div><script src='https://widgets.sociablekit.com/google-reviews/widget.js' defer></script>
+</section>
+
+
+<section class="contact-banner">
+  <div class="contact-wrapper">
+    <div class="contact-box">
+      <img src="https://img.icons8.com/ios-filled/40/ffffff/phone.png" alt="Phone Icon" />
+      <div class="text">
+        <span>Call or WhatsApp:</span>
+        <a href="tel:+918482858211">+91 84828 58211</a>
+      </div>
+    </div>
+    <div class="contact-box">
+      <img src="https://img.icons8.com/ios-filled/40/ffffff/marker.png" alt="Location Icon" />
+      <div class="text">
+        <span>Datta Mandir Road,<br>Shamkar Kalat Nagar, Wakad, Pune – 411057</span>
+      </div>
+    </div>
+  </div>
+  <div class="shape-circle circle-left"></div>
+  <div class="shape-circle circle-right"></div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Shree Sai Ansh Plumbing Services. 
+     <a href="disclaimer.html">Disclaimer</a> | 
+     <a href="privacy-policy.html">Privacy Policy</a>
+  </p>
+</footer>
+
+
+
+<a href="https://wa.me/918482858211" target="_blank" id="whatsapp-float">
+  <img src="https://img.icons8.com/color/96/whatsapp--v1.png" alt="WhatsApp Chat" />
+</a>
+
+
+<div style="position: sticky; bottom: 0; background: #43C0ED; padding: 1rem; text-align: center; z-index: 9999;">
+  <a href="#quick-call-back" style="background: #912C8C; color: white; padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: bold; text-decoration: none;">Contact Us</a>
+</div>
+
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+
+<script>
+  const track = document.querySelector('.slider-track');
+  const prevBtn = document.querySelector('.slider-btn.prev');
+  const nextBtn = document.querySelector('.slider-btn.next');
+  const items = document.querySelectorAll('.slider-item');
+  let currentIndex = 0;
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateSlider();
+  });
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateSlider();
+  });
+</script>
+
+
+
+<script>
+const beforeAfterImages = [
+  "https://i.ibb.co/Xf9dCHR4/5.png",
+  "https://i.ibb.co/HTnrR6Sv/6.png",
+  "https://i.ibb.co/HTXD657L/7.png",
+  "https://i.ibb.co/CpyGQrQN/8.png",
+  "https://i.ibb.co/Kjr9TdBP/9.png",
+  "https://i.ibb.co/whtgpR6q/10.png",
+  "https://i.ibb.co/YHcGTs0/1.png",
+  "https://i.ibb.co/jKNV7Wx/2.png",
+  "https://i.ibb.co/zVxLyy6s/3.png",
+  "https://i.ibb.co/DPNDVsDG/4.png"
+];
+
+let currentImageIndex = 0;
+const imageElement = document.getElementById("beforeAfterImage");
+
+function showNext() {
+  currentImageIndex = (currentImageIndex + 1) % beforeAfterImages.length;
+  imageElement.src = beforeAfterImages[currentImageIndex];
+}
+
+function showPrev() {
+  currentImageIndex = (currentImageIndex - 1 + beforeAfterImages.length) % beforeAfterImages.length;
+  imageElement.src = beforeAfterImages[currentImageIndex];
+}
+</script>
+
+
+</body>
+
+</html>
+
+
