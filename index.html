@@ -282,19 +282,21 @@ before-after-section {
   transition: 0.3s;
 }
 @media (max-width: 700px) {
-  .before-after-section {
-    padding: 1.5rem 0.5rem;
+  .before-after-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
   .image-frame {
-    aspect-ratio: 1.5 / 1;
+    margin-bottom: 1rem;
   }
   .nav-btn {
-    font-size: 1.5rem;
-    padding: 0.3rem 0.7rem;
+    position: static;
+    margin: 0 0.5rem;
+    transform: none;
+    display: inline-block;
   }
-  .prev-btn, .next-btn {
-    left: 5px;
-    right: 5px;
+  .before-after-wrapper {
+    gap: 0.5rem;
   }
 }
 @media (max-width: 700px) {
@@ -499,13 +501,13 @@ before-after-section {
 <section class="before-after-section">
   <h2 class="section-title">Before & After</h2>
   <div class="before-after-wrapper">
-    <button class="nav-btn prev-btn" onclick="showPrev()">&#10094;</button>
-
-    <div class="image-frame">
-      <img id="beforeAfterImage" src="https://i.ibb.co/Xf9dCHR4/5.png" alt="Before After" />
+    <div class="image-frame" id="beforeAfterFrame">
+      <img id="beforeAfterImage" src="https://i.ibb.co/Xf9dCHR4/5.png" alt="Before After" style="transition: opacity 0.5s;" />
     </div>
-
-    <button class="nav-btn next-btn" onclick="showNext()">&#10095;</button>
+    <div class="before-after-controls">
+      <button class="nav-btn prev-btn" onclick="showPrev()">&#10094;</button>
+      <button class="nav-btn next-btn" onclick="showNext()">&#10095;</button>
+    </div>
   </div>
 </section>
 
@@ -625,16 +627,39 @@ const beforeAfterImages = [
 
 let currentImageIndex = 0;
 const imageElement = document.getElementById("beforeAfterImage");
+const frame = document.getElementById("beforeAfterFrame");
+
+function showImage(index) {
+  imageElement.style.opacity = 0;
+  setTimeout(() => {
+    imageElement.src = beforeAfterImages[index];
+    imageElement.style.opacity = 1;
+  }, 300);
+}
 
 function showNext() {
   currentImageIndex = (currentImageIndex + 1) % beforeAfterImages.length;
-  imageElement.src = beforeAfterImages[currentImageIndex];
+  showImage(currentImageIndex);
 }
 
 function showPrev() {
   currentImageIndex = (currentImageIndex - 1 + beforeAfterImages.length) % beforeAfterImages.length;
-  imageElement.src = beforeAfterImages[currentImageIndex];
+  showImage(currentImageIndex);
 }
+
+// Swipe support
+let startX = 0;
+frame.addEventListener('touchstart', function(e) {
+  startX = e.touches[0].clientX;
+});
+frame.addEventListener('touchend', function(e) {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    showNext();
+  } else if (endX - startX > 50) {
+    showPrev();
+  }
+});
 </script>
 
 <script>
