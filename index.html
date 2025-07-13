@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -264,10 +263,97 @@ before-after-section {
   right: 20px;
 }
 
-</style>
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.hamburger span {
+  height: 4px;
+  width: 28px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 700px) {
+  .before-after-section {
+    padding: 1.5rem 0.5rem;
+  }
+  .image-frame {
+    aspect-ratio: 1.5 / 1;
+  }
+  .nav-btn {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .prev-btn, .next-btn {
+    left: 5px;
+    right: 5px;
+  }
+}
+@media (max-width: 700px) {
+  .contact-banner {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .contact-box {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .contact-box img {
+    width: 28px;
+    height: 28px;
+  }
+}
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service img {
+    width: 48px;
+    height: 48px;
+  }
+  .gallery-grid {
+    padding: 0 0.5rem;
+    gap: 0.5rem;
+  }
+  footer {
+    font-size: 0.8rem;
+    padding: 0.7rem;
+  }
+  .sticky-contact {
+    padding: 0.5rem;
+  }
+  .sticky-contact a {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+  #whatsapp-float img {
+    width: 48px;
+    height: 48px;
+  }
+  #whatsapp-float {
+    bottom: 70px;
+    right: 10px;
+  }
+}
 
-
-<style>
 .contact-banner {
   position: relative;
   background: linear-gradient(135deg, #912C8C, #1681C4);
@@ -347,6 +433,11 @@ before-after-section {
 </head>
 <body>
 <header>
+  <div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <nav>
     <ul>
       <li><a href="Homepage.html">Homepage</a></li>
@@ -404,8 +495,6 @@ before-after-section {
     <div class="service"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-784-u8QxJM9VKHHCr1Qg3e77H5aOjpI9Q&s"/><p>Kitchen Sink</p></div>
   </div>
 </section>
-
-
 
 <section class="before-after-section">
   <h2 class="section-title">Before & After</h2>
@@ -483,8 +572,6 @@ before-after-section {
   </p>
 </footer>
 
-
-
 <a href="https://wa.me/918482858211" target="_blank" id="whatsapp-float">
   <img src="https://img.icons8.com/color/96/whatsapp--v1.png" alt="WhatsApp Chat" />
 </a>
@@ -522,8 +609,6 @@ before-after-section {
   });
 </script>
 
-
-
 <script>
 const beforeAfterImages = [
   "https://i.ibb.co/Xf9dCHR4/5.png",
@@ -551,6 +636,24 @@ function showPrev() {
   imageElement.src = beforeAfterImages[currentImageIndex];
 }
 </script>
+
+<script>
+  // Responsive nav menu toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const navUl = document.querySelector('nav ul');
+  hamburger.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+  });
+  // Optional: close menu when a link is clicked (for better UX)
+  navUl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navUl.classList.remove('active');
+    });
+  });
+</script>
+
+
+
 
 
 </body>
