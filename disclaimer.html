@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Disclaimer - Shree Sai Ansh Plumbing</title>
   <style>
+  
+  
+   header {
+      background: linear-gradient(135deg, #912C8C, #7E2F85);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+    }
+    header h1 { font-size: 2.5rem; font-weight: 700; text-transform: uppercase; }
+    header .tagline { font-size: 1.1rem; margin: 0.5rem 0; }
+    header .location { font-size: 1rem; color: #ddd; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      padding: 0;
+      justify-content: center;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    nav ul li a { color: #fff; font-weight: bold; }
+
+    .btn {
+      display: inline-block;
+      background: #43C0ED;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+  
+  
+  
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -42,11 +78,47 @@
       font-size: 1rem;
       font-weight: bold;
     }
+    
+  .hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.hamburger span {
+  height: 4px;
+  width: 28px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+}
   </style>
 </head>
 <body>
 
   <header>
+<div class="hamburger" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#index.html">Homepage</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="about-us.html">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#Google Reviews">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+    
       <h1>Disclaimer</h1>
      <h1>Shree Sai Ansh Plumbing Services</h1>
   <p class="tagline">All Bathroom Renovation • Plumbing • Tiles • Electrical</p>
@@ -62,6 +134,22 @@
     <p>We reserve the right to modify the content at any time without prior notice. This website may contain links to external websites, which are not under the control of Shree Sai Ansh Plumbing. We are not responsible for the content or availability of those sites.</p>
     <p>By using our website, you agree to this disclaimer and acknowledge that you understand and accept all the terms and conditions mentioned. If you do not agree with this disclaimer, please do not use our website or services.</p>
   </section>
+
+
+<script>
+  // Responsive nav menu toggle
+  const hamburger = document.getElementById('hamburger-menu');
+  const navUl = document.querySelector('nav ul');
+  hamburger.addEventListener('click', () => {
+    navUl.classList.toggle('active');
+  });
+  // Optional: close menu when a link is clicked (for better UX)
+  navUl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navUl.classList.remove('active');
+    });
+  });
+</script>
 
   <footer>
   <p>&copy; 2025 Shree Sai Ansh Plumbing Services. 
