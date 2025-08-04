@@ -221,15 +221,16 @@ before-after-section {
 }
 
 .image-frame {
-  width: 100%;
-  max-width: 1080px;
-  aspect-ratio: 2 / 1;
+  width: 60vw;                  /* 60% of viewport width */
+  aspect-ratio: 2 / 1;          /* Height = half of width */
   border-radius: 12px;
   overflow: hidden;
+  margin: auto;
+  background-color: #fff;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   position: relative;
-  background-color: #fff;
 }
+
 
 .image-frame img {
   width: 100%;
@@ -429,6 +430,58 @@ before-after-section {
   bottom: -30px;
   right: -30px;
 }
+
+.before-after-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Important for mobile responsiveness */
+}
+
+.before-after-btn {
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.prev-text-btn {
+  background-color: #912C8C;
+}
+
+.next-text-btn {
+  background-color: #43C0ED;
+}
+
+.before-after-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.before-after-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive: stack buttons below image on small screens */
+@media (max-width: 768px) {
+  .before-after-layout {
+    flex-direction: column;
+  }
+
+  .before-after-btn {
+    width: 80%;
+    max-width: 300px;
+    margin-top: 10px;
+  }
+}
+
 
 
 /* <!-- Gallery Section Start --> */
@@ -691,16 +744,21 @@ before-after-section {
 
 <section class="before-after-section">
   <h2 class="section-title">Before & After</h2>
-  <div class="before-after-wrapper">
-    <div class="image-frame" id="beforeAfterFrame">
-      <img id="beforeAfterImage" src="https://i.ibb.co/Xf9dCHR4/5.png" alt="Before After" style="transition: opacity 0.5s;" />
+
+  <div class="before-after-layout">
+    <button class="before-after-btn prev-text-btn" onclick="showPrev()">← Previous</button>
+
+    <div class="before-after-wrapper">
+      <div class="image-frame" id="beforeAfterFrame">
+        <img id="beforeAfterImage" class="slide-image" src="https://i.ibb.co/TM9xsrCw/4.webp" />
+      </div>
     </div>
-    <div class="before-after-controls">
-      <button class="nav-btn prev-btn" onclick="showPrev()">&#10094;</button>
-      <button class="nav-btn next-btn" onclick="showNext()">&#10095;</button>
-    </div>
+
+    <button class="before-after-btn next-text-btn" onclick="showNext()">Next →</button>
   </div>
 </section>
+
+
 
 
 <!-- Gallery Section Start -->
@@ -990,17 +1048,18 @@ before-after-section {
 
 <script>
 const beforeAfterImages = [
-  "https://i.ibb.co/Xf9dCHR4/5.png",
-  "https://i.ibb.co/HTnrR6Sv/6.png",
-  "https://i.ibb.co/HTXD657L/7.png",
-  "https://i.ibb.co/CpyGQrQN/8.png",
-  "https://i.ibb.co/Kjr9TdBP/9.png",
-  "https://i.ibb.co/whtgpR6q/10.png",
-  "https://i.ibb.co/YHcGTs0/1.png",
-  "https://i.ibb.co/jKNV7Wx/2.png",
-  "https://i.ibb.co/zVxLyy6s/3.png",
-  "https://i.ibb.co/DPNDVsDG/4.png"
+  "https://i.ibb.co/8DDzsrCn/1.webp",
+  "https://i.ibb.co/C398Rkw1/2.webp",
+  "https://i.ibb.co/0RJCmfH8/3.webp",
+   "https://i.ibb.co/8DDzsrCn/1.webp",
+  "https://i.ibb.co/C398Rkw1/2.webp",
+  "https://i.ibb.co/0RJCmfH8/3.webp",
+   "https://i.ibb.co/8DDzsrCn/1.webp",
+  "https://i.ibb.co/C398Rkw1/2.webp",
+  "https://i.ibb.co/0RJCmfH8/3.webp",
+  "https://i.ibb.co/TM9xsrCw/4.webp"
 ];
+
 
 let currentImageIndex = 0;
 const imageElement = document.getElementById("beforeAfterImage");
