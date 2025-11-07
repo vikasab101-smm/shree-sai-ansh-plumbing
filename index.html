@@ -123,7 +123,7 @@
       background: #222;
       color: #ccc;
       text-align: center;
-      padding: 1rem;
+      padding: 0.5rem;
       font-size: 0.9rem;
     }
 
@@ -231,13 +231,13 @@ before-after-section {
   position: relative;
 }
 
-
 .image-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Desktop navigation buttons */
 .nav-btn {
   font-size: 30px;
   background-color: rgba(0,0,0,0.4);
@@ -264,6 +264,39 @@ before-after-section {
   right: 20px;
 }
 
+/* Mobile nav buttons - matching gallery style */
+.before-after-nav {
+  display: none; /* Hidden by default, shown on mobile */
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.before-after-nav button {
+  background: #912C8C;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.3s;
+  min-width: 120px; /* Ensure both buttons have same width */
+  text-align: center;
+}
+.before-after-nav button:last-child {
+  background: #43C0ED;
+}
+.before-after-nav button:hover {
+  background: #7E2F85;
+  transform: translateY(-2px);
+}
+.before-after-nav button:last-child:hover {
+  background: #3aa8d0;
+}
+.before-after-nav button:active {
+  transform: translateY(1px);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -282,19 +315,23 @@ before-after-section {
   border-radius: 2px;
   transition: 0.3s;
 }
+
 @media (max-width: 700px) {
   .before-after-wrapper {
     flex-direction: column;
     align-items: center;
   }
   .image-frame {
-    margin-bottom: 1rem;
+    width: 100%;  /* Full width on mobile */
+    margin: 0 0 1rem;
   }
+  /* Hide desktop nav buttons */
   .nav-btn {
-    position: static;
-    margin: 0 0.5rem;
-    transform: none;
-    display: inline-block;
+    display: none;
+  }
+  /* Show mobile style nav */
+  .before-after-nav {
+    display: flex;
   }
   .before-after-wrapper {
     gap: 0.5rem;
@@ -326,11 +363,13 @@ before-after-section {
 }
 @media (max-width: 600px) {
   .services-grid {
-    grid-template-columns: 1fr;
+    /* Show minimum 2 services per row on small/mobile screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
   .service img {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
   /* .gallery-grid {
     padding: 0 0.5rem;
@@ -456,8 +495,11 @@ before-after-section {
   background-color: #912C8C;
 }
 
-.next-text-btn {
-  background-color: #43C0ED;
+.next-text-btn, .next-btn {
+  background-color: #43C0ED !important;
+}
+.next-text-btn:hover, .next-btn:hover {
+  background-color: #3aa8d0 !important;
 }
 
 .before-after-btn:hover {
@@ -658,6 +700,87 @@ before-after-section {
   animation: fadeIn 0.4s ease;
 }
 
+  /* Gallery navigation controls - visible on all screens */
+  .mobile-service-select { display: none; margin: 0 auto 12px; max-width: 420px; width: calc(100% - 2rem); padding: 8px 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 1rem; }
+  .mobile-carousel-nav { display: flex; gap: 12px; justify-content: center; margin: 20px 0; }
+  .mobile-carousel-nav button { 
+    background: #912C8C; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 24px; 
+    border-radius: 25px; 
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.3s;
+    min-width: 120px; /* Ensure both buttons have same width */
+    text-align: center;
+  }
+  .mobile-carousel-nav button#mobile-next {
+    background: #43C0ED;
+  }
+  .mobile-carousel-nav button:hover { 
+    background: #7E2F85;
+    transform: translateY(-2px);
+  }
+  .mobile-carousel-nav button#mobile-next:hover {
+    background: #3aa8d0;
+  }
+  .mobile-carousel-nav button:active { transform: translateY(1px); }
+
+  @media (max-width: 600px) {
+    /* hide desktop tabs and show mobile select */
+    .gallery-tabs { display: none; }
+    .mobile-service-select { display: block; }
+    /* adjust button size on mobile */
+    .mobile-carousel-nav button { padding: 8px 16px; }
+
+    /* make carousel show only one card at a time */
+    .project-card { flex: 0 0 100% !important; max-width: 100%; }
+    .scroll-container { gap: 0.6rem; padding: 0 0.6rem; }
+    .card-content h4 { font-size: 1.05rem; }
+    .card-content p { font-size: 0.95rem; }
+  }
+
+/* Prevent unwanted horizontal whitespace/overflow and make sticky call bar full width */
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Use a CSS variable for sticky bar height so we can keep footer background
+   visible without leaving a white gap. Remove body padding and give footer
+   extra bottom padding instead. */
+:root { --sticky-height: 88px; }
+body { padding-bottom: 0; }
+
+.sticky-contact {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #43C0ED;
+  padding: 12px 1rem;
+  text-align: center;
+  z-index: 9999;
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
+}
+.sticky-contact a {
+  background: #912C8C;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+/* ensure footer background extends behind the sticky bar so no white line appears */
+footer {
+  /* reduce bottom padding proportionally: use 30% reduction (keep 70% of sticky height) */
+  padding-bottom: calc(var(--sticky-height) * 0.7 + 0.5rem);
+  padding-top: 0.5rem;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -746,15 +869,20 @@ before-after-section {
   <h2 class="section-title">Before & After</h2>
 
   <div class="before-after-layout">
-    <button class="before-after-btn prev-text-btn" onclick="showPrev()">← Previous</button>
+    <!-- Desktop buttons -->
+    <button class="before-after-btn prev-text-btn nav-btn prev-btn" onclick="showPrev()" style="min-width: 120px;">← Previous</button>
+    <button class="before-after-btn next-text-btn nav-btn next-btn" onclick="showNext()" style="min-width: 120px;">Next →</button>
 
     <div class="before-after-wrapper">
       <div class="image-frame" id="beforeAfterFrame">
         <img id="beforeAfterImage" class="slide-image" src="https://i.ibb.co/TM9xsrCw/4.webp" />
       </div>
+      <!-- Mobile buttons -->
+      <div class="before-after-nav">
+        <button onclick="showPrev()">← Previous</button>
+        <button onclick="showNext()">Next →</button>
+      </div>
     </div>
-
-    <button class="before-after-btn next-text-btn" onclick="showNext()">Next →</button>
   </div>
 </section>
 
@@ -781,6 +909,21 @@ before-after-section {
   </div>
 
   <!-- Scrollable Card Container -->
+  <!-- Mobile: service dropdown (only visible on small screens) -->
+  <select id="mobile-service-select" class="mobile-service-select" aria-label="Select service">
+    <option value="all">All</option>
+    <option value="bathroom-leakage">Bathroom Leakage</option>
+    <option value="tiles">Tiles Work</option>
+    <option value="waterproofing">Waterproofing</option>
+    <option value="painting">Painting</option>
+    <option value="geyser">Geyser Service</option>
+    <option value="fan">Fan Installation</option>
+    <option value="renovation">Bathroom Renovation</option>
+    <option value="electrical">Electrical Work</option>
+    <option value="plumbing">All Plumbing Work</option>
+    <option value="electrician">All Electrician Work</option>
+  </select>
+
   <div class="scroll-container">
     <!-- Bathroom Leakage -->
     <div class="project-card bathroom-leakage">
@@ -962,6 +1105,11 @@ before-after-section {
       <div class="card-content"><h4>Wiring Audit</h4><p>Electrical check</p></div>
     </div>
   </div>
+  <!-- Mobile carousel nav -->
+  <div class="mobile-carousel-nav">
+    <button id="mobile-prev" aria-label="Previous">← Previous</button>
+    <button id="mobile-next" aria-label="Next">Next →</button>
+  </div>
 </section>
 <!-- Gallery Section End -->
 
@@ -1011,8 +1159,8 @@ before-after-section {
 </a>
 
 
-<div style="position: sticky; bottom: 0; background: #43C0ED; padding: 1rem; text-align: center; z-index: 9999;">
-  <a href="tel:+918482858211" style="background: #912C8C; color: white; padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; font-weight: bold; text-decoration: none;">Call Us Now</a>
+<div class="sticky-contact">
+  <a href="tel:+918482858211">Call Us Now</a>
 </div>
 
 
@@ -1217,6 +1365,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial load = All + shuffle
   shuffleCards(cards);
+
+  // Mobile select behavior (if present)
+  const mobileSelect = document.getElementById('mobile-service-select');
+  if (mobileSelect) {
+    mobileSelect.addEventListener('change', function () {
+      const category = mobileSelect.value || 'all';
+      // Sync active tab (if tabs visible)
+      tabs.forEach(t => t.classList.toggle('active', t.getAttribute('data-category') === category));
+      if (category === 'all') {
+        shuffleCards(cards);
+      } else {
+        showCards(category);
+      }
+      // On mobile, snap to start
+      container.scrollTo({ left: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Mobile carousel nav buttons
+  const mobilePrev = document.getElementById('mobile-prev');
+  const mobileNext = document.getElementById('mobile-next');
+  function scrollByPage(delta = 1) {
+    const page = container.clientWidth || window.innerWidth;
+    container.scrollBy({ left: delta * page, behavior: 'smooth' });
+  }
+  if (mobilePrev) mobilePrev.addEventListener('click', () => scrollByPage(-1));
+  if (mobileNext) mobileNext.addEventListener('click', () => scrollByPage(1));
+
+  // Improve touch behaviour: make sure scroll snapping lands on cards
+  let isTouching = false;
+  let touchStartX = 0;
+  container.addEventListener('touchstart', (e) => { isTouching = true; touchStartX = e.touches[0].clientX; });
+  container.addEventListener('touchend', (e) => {
+    isTouching = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = touchStartX - endX;
+    if (Math.abs(diff) > 50) {
+      // swipe left = next
+      if (diff > 0) scrollByPage(1);
+      else scrollByPage(-1);
+    }
+  });
 });
 </script>
 
